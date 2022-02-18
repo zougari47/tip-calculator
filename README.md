@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - [Code Source](https://github.com/zougari47/tip-calculator)
-- [Live Demo](https://zougari47.github.io/calculator-app-main/)
+- [Live Demo](https://zougari47.github.io/tip-calculator/)
 
 ## My process
 
