@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- [Code Source](https://your-solution-url.com)
-- [Live Demo](https://your-live-site-url.com)
+- [Code Source](https://github.com/zougari47/tip-calculator)
+- [Live Demo](https://zougari47.github.io/calculator-app-main/)
 
 ## My process
 
