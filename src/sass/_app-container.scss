@@ -1,0 +1,29 @@
+@use 'variables' as *;
+@use 'app';
+
+.app-container {
+  // TODO: MAx width;
+  //   background: $Strong-cyan;
+  width: 100%;
+  min-height: 600px;
+  margin-top: 3vh;
+  // background: gold;
+  max-width: 940px;
+  max-height: 600px;
+  // height: 1900px;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: 'Space Mono', monospace;
+  text-align: center;
+  font-size: 1.13rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+
+  .title {
+    color: $Dark-grayish-cyan;
+    display: block;
+    letter-spacing: 5px;
+  }
+}

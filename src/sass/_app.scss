@@ -1,0 +1,269 @@
+@use 'variables' as *;
+
+#app {
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  max-width: 900px;
+  height: auto;
+  margin: 0 auto;
+  @include tablet {
+    padding: 1rem 0;
+  }
+  // max-height: 600px;
+  // min-height: 400px;
+  // max-height: 600px;
+
+  .input-container {
+    margin: 1rem auto 0;
+    width: 80%;
+    max-width: 420px;
+    max-height: 420px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include tablet {
+      margin: 0 auto;
+      height: 420px;
+    }
+
+    .bill {
+      width: 80%;
+      margin: auto;
+      @include font;
+      margin-top: 10px;
+
+      label {
+        display: block;
+        width: 100%;
+        font-weight: 700;
+        font-size: 0.63rem;
+        color: $Dark-grayish-cyan-2;
+      }
+
+      input {
+        border: none;
+        outline: none;
+        width: 100%;
+        border-radius: 5px;
+        min-height: 1.3rem;
+        background: url(../images/icon-dollar.svg) left/auto no-repeat
+          $Light-grayish-cyan-2;
+        @include font;
+        text-align: right;
+        font-size: 1.1rem;
+        padding-right: 10px;
+        color: $Very-dark-cyan;
+        font-weight: 700;
+        caret-color: $Very-dark-cyan;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+
+        &:focus-within {
+          outline-width: 2px;
+          outline-style: solid;
+          outline-color: $Dark-grayish-cyan-2;
+        }
+      }
+    }
+
+    aside {
+      //   background: gold;
+      width: 80%;
+      margin: 1rem auto;
+
+      h3 {
+        @include font;
+        font-size: 0.8rem;
+        color: $Dark-grayish-cyan;
+      }
+
+      .tip-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        @include tablet {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        input[type='radio'] {
+          display: none;
+        }
+
+        input[type='radio']:checked + label:not([contenteditable]) {
+          color: $Very-dark-cyan;
+          background: $Strong-cyan;
+        }
+
+        label {
+          cursor: pointer;
+          width: 100%;
+          min-height: 2rem;
+          background: $Very-dark-cyan;
+          @include flexCenter;
+          border-radius: 5px;
+          color: $White;
+          @include font;
+          font-weight: 700;
+          box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+
+          &:hover {
+            background-color: $Light-grayish-cyan;
+            color: $Very-dark-cyan;
+          }
+        }
+
+        label:last-child {
+          background-color: $Light-grayish-cyan-2;
+          color: $Dark-grayish-cyan !important;
+          outline: none;
+
+          &:focus-within {
+            outline-width: 2px;
+            outline-style: solid;
+            outline-color: $Dark-grayish-cyan-2;
+          }
+
+          &:empty::before {
+            content: attr(data-placeholder);
+          }
+        }
+      }
+    }
+
+    .people {
+      @extend .bill;
+
+      input {
+        background: url(../images/icon-person.svg) left no-repeat
+          $Light-grayish-cyan-2;
+
+        &.warning {
+          outline-width: 2px;
+          outline-style: solid;
+          outline-color: red;
+        }
+      }
+
+      label.warning::after {
+        // background: goldenrod;
+        visibility: visible;
+      }
+
+      label {
+        // background: black;
+        position: relative;
+      }
+
+      label:after {
+        content: "Can't be zero";
+        color: rgb(255, 108, 108);
+        margin-left: 50%;
+        position: absolute;
+        font-size: 0.5rem;
+        z-index: 3;
+        right: -20%;
+        bottom: 0;
+        visibility: hidden;
+        @include tablet {
+          right: 0;
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+
+  .results-container {
+    height: 100%;
+    width: 80%;
+    max-width: 420px;
+    max-height: 420px;
+    min-height: 200px;
+    background: $Very-dark-cyan;
+    margin: 1rem auto 0;
+    padding: 0.4rem;
+    @include font;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include tablet {
+      margin: 0 auto;
+      min-height: 420px;
+    }
+
+    .result-container {
+      // max-height: 35%;
+      // background-color: red;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      @include tablet {
+        min-height: 150px;
+      }
+
+      .result {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0.4rem 0;
+
+        .per {
+          color: $White;
+          font-size: 0.85rem;
+        }
+
+        .per::after {
+          content: '/ person';
+          color: $Light-grayish-cyan;
+          font-size: 0.8em;
+          display: block;
+        }
+
+        .price {
+          color: $Strong-cyan;
+          font-weight: 700;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    button {
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      background: $Strong-cyan;
+      color: $Very-dark-cyan;
+      text-transform: uppercase;
+      min-height: 2rem;
+      cursor: pointer;
+      @include flexCenter;
+      @include font;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      @include tablet {
+        margin-bottom: 1rem;
+      }
+
+      &:hover,
+      &:active {
+        background: $Light-grayish-cyan;
+      }
+
+      &:disabled {
+        background: $Dark-grayish-cyan;
+
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

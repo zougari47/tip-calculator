@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  max-width: 900px;
+  height: auto;
+  margin: 0 auto;
+}
+@media (min-width: 843px) {
+  #app {
+    padding: 1rem 0;
+  }
+}
+#app .input-container {
+  margin: 1rem auto 0;
+  width: 80%;
+  max-width: 420px;
+  max-height: 420px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@media (min-width: 843px) {
+  #app .input-container {
+    margin: 0 auto;
+    height: 420px;
+  }
+}
+#app .input-container .bill, #app .input-container .people {
+  width: 80%;
+  margin: auto;
+  font-family: "Space Mono", monospace;
+  margin-top: 10px;
+}
+#app .input-container .bill label, #app .input-container .people label {
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  font-size: 0.63rem;
+  color: #7f9c9f;
+}
+#app .input-container .bill input, #app .input-container .people input {
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 5px;
+  min-height: 1.3rem;
+  background: url(../images/icon-dollar.svg) left/auto no-repeat #f4fafa;
+  font-family: "Space Mono", monospace;
+  text-align: right;
+  font-size: 1.1rem;
+  padding-right: 10px;
+  color: #00494d;
+  font-weight: 700;
+  caret-color: #00494d;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+#app .input-container .bill input:focus-within, #app .input-container .people input:focus-within {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: #7f9c9f;
+}
+#app .input-container aside {
+  width: 80%;
+  margin: 1rem auto;
+}
+#app .input-container aside h3 {
+  font-family: "Space Mono", monospace;
+  font-size: 0.8rem;
+  color: #5e7a7d;
+}
+#app .input-container aside .tip-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+@media (min-width: 843px) {
+  #app .input-container aside .tip-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+#app .input-container aside .tip-container input[type=radio] {
+  display: none;
+}
+#app .input-container aside .tip-container input[type=radio]:checked + label:not([contenteditable]) {
+  color: #00494d;
+  background: #26c0ab;
+}
+#app .input-container aside .tip-container label {
+  cursor: pointer;
+  width: 100%;
+  min-height: 2rem;
+  background: #00494d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+}
+#app .input-container aside .tip-container label:hover {
+  background-color: #c5e4e7;
+  color: #00494d;
+}
+#app .input-container aside .tip-container label:last-child {
+  background-color: #f4fafa;
+  color: #5e7a7d !important;
+  outline: none;
+}
+#app .input-container aside .tip-container label:last-child:focus-within {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: #7f9c9f;
+}
+#app .input-container aside .tip-container label:last-child:empty::before {
+  content: attr(data-placeholder);
+}
+#app .input-container .people input {
+  background: url(../images/icon-person.svg) left no-repeat #f4fafa;
+}
+#app .input-container .people input.warning {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: red;
+}
+#app .input-container .people label.warning::after {
+  visibility: visible;
+}
+#app .input-container .people label {
+  position: relative;
+}
+#app .input-container .people label:after {
+  content: "Can't be zero";
+  color: #ff6c6c;
+  margin-left: 50%;
+  position: absolute;
+  font-size: 0.5rem;
+  z-index: 3;
+  right: -20%;
+  bottom: 0;
+  visibility: hidden;
+}
+@media (min-width: 843px) {
+  #app .input-container .people label:after {
+    right: 0;
+    font-size: 0.7rem;
+  }
+}
+#app .results-container {
+  height: 100%;
+  width: 80%;
+  max-width: 420px;
+  max-height: 420px;
+  min-height: 200px;
+  background: #00494d;
+  margin: 1rem auto 0;
+  padding: 0.4rem;
+  font-family: "Space Mono", monospace;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 843px) {
+  #app .results-container {
+    margin: 0 auto;
+    min-height: 420px;
+  }
+}
+#app .results-container .result-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@media (min-width: 843px) {
+  #app .results-container .result-container {
+    min-height: 150px;
+  }
+}
+#app .results-container .result-container .result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.4rem 0;
+}
+#app .results-container .result-container .result .per {
+  color: white;
+  font-size: 0.85rem;
+}
+#app .results-container .result-container .result .per::after {
+  content: "/ person";
+  color: #c5e4e7;
+  font-size: 0.8em;
+  display: block;
+}
+#app .results-container .result-container .result .price {
+  color: #26c0ab;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+#app .results-container button {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  background: #26c0ab;
+  color: #00494d;
+  text-transform: uppercase;
+  min-height: 2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+@media (min-width: 843px) {
+  #app .results-container button {
+    margin-bottom: 1rem;
+  }
+}
+#app .results-container button:hover, #app .results-container button:active {
+  background: #c5e4e7;
+}
+#app .results-container button:disabled {
+  background: #5e7a7d;
+}
+#app .results-container button:disabled:hover {
+  cursor: not-allowed;
+}
+
+.app-container {
+  width: 100%;
+  min-height: 600px;
+  margin-top: 3vh;
+  max-width: 940px;
+  max-height: 600px;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: "Space Mono", monospace;
+  text-align: center;
+  font-size: 1.13rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+h1 .title {
+  color: #5e7a7d;
+  display: block;
+  letter-spacing: 5px;
+}
+
+html {
+  font-size: 24px;
+  box-sizing: inherit;
+  background: #c5e4e7;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

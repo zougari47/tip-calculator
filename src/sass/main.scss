@@ -1,0 +1,15 @@
+@use 'variables' as *;
+@use 'reset' as *;
+@use 'app-container';
+
+html {
+  font-size: $font-size;
+  box-sizing: inherit;
+  background: $Light-grayish-cyan;
+}
+
+body {
+  min-height: 100vh;
+  @include flexCenter;
+  //   align-items: flex-start;
+}
