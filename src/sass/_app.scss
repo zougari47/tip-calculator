@@ -54,14 +54,15 @@
         min-height: 1.3rem;
         background: url(../images/icon-dollar.svg) left/auto no-repeat
           $Light-grayish-cyan-2;
+          background-position: 0.5rem;
         @include font;
         text-align: right;
         font-size: 1.1rem;
-        padding-right: 10px;
         color: $Very-dark-cyan;
         font-weight: 700;
         caret-color: $Very-dark-cyan;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+        padding: 0.2rem 1rem;
 
         &:focus-within {
           outline-width: 2px;
@@ -186,7 +187,7 @@
     min-height: 200px;
     background: $Very-dark-cyan;
     margin: 1rem auto 0;
-    padding: 0.4rem;
+    padding: 1rem;
     @include font;
     border-radius: 15px;
     display: flex;
