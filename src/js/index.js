@@ -104,8 +104,10 @@ function check(e) {
 btn.addEventListener('click', calc);
 billInput.addEventListener('keypress', check);
 billInput.addEventListener('keyup', check);
+billInput.addEventListener('change', check);
 peopleInput.addEventListener('keypress', check);
 peopleInput.addEventListener('keyup', check);
+peopleInput.addEventListener('change', check);
 // rdButtons[5].nextElementSibling.addEventListener('keyup', checkCostumeInput);
 // rdButtons[5].nextElementSibling.addEventListener('keypress', checkCostumeInput);
 // rdButtons[5].nextElementSibling.addEventListener('keydown', checkCostumeInput);
