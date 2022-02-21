@@ -81,8 +81,10 @@
   width: 100%;
   border-radius: 5px;
   min-height: 1.3rem;
-  background: url(../images/icon-dollar.svg) left/auto no-repeat #f4fafa;
-  background-position: 0.5rem;
+  background-image: url(../images/icon-dollar.svg);
+  background-color: #f4fafa;
+  background-position: 5% 50%;
+  background-repeat: no-repeat;
   font-family: 'Space Mono', monospace;
   text-align: right;
   font-size: 1.1rem;
@@ -92,6 +94,11 @@
   -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   padding: 0.2rem 1rem;
+  -moz-appearance: textfield;
+}
+
+#app .input-container .bill input::-webkit-outer-spin-button, #app .input-container .people input::-webkit-outer-spin-button, #app .input-container .bill input::-webkit-inner-spin-button, #app .input-container .people input::-webkit-inner-spin-button {
+  display: none;
 }
 
 #app .input-container .bill input:focus-within, #app .input-container .people input:focus-within {
@@ -180,8 +187,7 @@
 }
 
 #app .input-container .people input {
-  background: url(../images/icon-person.svg) left no-repeat #f4fafa;
-  padding: 0.3rem;
+  background-image: url(../images/icon-person.svg);
 }
 
 #app .input-container .people input.warning {

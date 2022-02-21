@@ -52,9 +52,10 @@
         width: 100%;
         border-radius: 5px;
         min-height: 1.3rem;
-        background: url(../images/icon-dollar.svg) left/auto no-repeat
-          $Light-grayish-cyan-2;
-        background-position: 0.5rem;
+        background-image: url(../images/icon-dollar.svg);
+        background-color: $Light-grayish-cyan-2;
+        background-position: 5% 50%;
+        background-repeat: no-repeat;
         @include font;
         text-align: right;
         font-size: 1.1rem;
@@ -63,6 +64,12 @@
         caret-color: $Very-dark-cyan;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
         padding: 0.2rem 1rem;
+        -moz-appearance: textfield;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          display: none;
+        }
 
         &:focus-within {
           outline-width: 2px;
@@ -141,10 +148,11 @@
       @extend .bill;
 
       input {
-        background: url(../images/icon-person.svg) left no-repeat
-          $Light-grayish-cyan-2;
-
-        padding: 0.3rem;
+        // background: url(../images/icon-person.svg) left/auto no-repeat
+        //   $Light-grayish-cyan-2;
+        background-image: url(../images/icon-person.svg);
+        // background-color: red;
+        // padding: 0.3rem;
 
         &.warning {
           outline-width: 2px;

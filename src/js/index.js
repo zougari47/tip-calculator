@@ -8,9 +8,8 @@ const totalPrice = document.querySelector('.total-price');
 
 //checking the costume input
 function checkCostumeInput(e) {
-  if (e.key !== 'Backspace') {
-    //accept the just numbers and dot
-    ![
+  if (e.key !== 'Backspace' && e.target === rdButtons[5].nextElementSibling) {
+    const shitArray = [
       '1',
       '2',
       '3',
@@ -23,24 +22,53 @@ function checkCostumeInput(e) {
       '0',
       '.',
       'Backspace'
-    ].includes(e.key) && e.preventDefault();
-
-    //check the value is between 100 and 0
+    ];
+    const currentValue = this.textContent || '';
+    const val = currentValue.split('.')[1] || '';
     if (
-      parseFloat(this.textContent + e.key) < 0 ||
-      parseFloat(this.textContent + e.key) > 100
+      shitArray.includes(e.key) === false /*accept the just numbers and dot*/ ||
+      parseFloat(currentValue + e.key) <
+        0 /* check the value is between 100 and 0 */ ||
+      parseFloat(currentValue + e.key) >
+        100 /* check the value is between 100 and 0 */ ||
+      (currentValue.includes('.') &&
+        e.key === '.') /*prevent user from entering multiple dots */ ||
+      val.length >= 2 /*accept just two numbers after dot */
     ) {
       e.preventDefault();
     }
 
-    //prevent user from entering multiple dots
-    this.textContent.includes('.') && e.key === '.' && e.preventDefault();
+    // ![
+    //   '1',
+    //   '2',
+    //   '3',
+    //   '4',
+    //   '5',
+    //   '6',
+    //   '7',
+    //   '8',
+    //   '9',
+    //   '0',
+    //   '.',
+    //   'Backspace'
+    // ].includes(e.key) && e.preventDefault();
 
-    //accept just two numbers after dot
-    const val = this.textContent.split('.')[1] || '';
-    if (val.length >= 2) {
-      e.preventDefault();
-    }
+    // //check the value is between 100 and 0
+    // if (
+    //   parseFloat(this.textContent + e.key) < 0 ||
+    //   parseFloat(this.textContent + e.key) > 100
+    // ) {
+    //   e.preventDefault();
+    // }
+
+    // //prevent user from entering multiple dots
+    // this.textContent.includes('.') && e.key === '.' && e.preventDefault();
+
+    // //accept just two numbers after dot
+    // const val = this.textContent.split('.')[1] || '';
+    // if (val.length >= 2) {
+    //   e.preventDefault();
+    // }
   }
 }
 
@@ -102,21 +130,20 @@ function check(e) {
 }
 
 btn.addEventListener('click', calc);
-billInput.addEventListener('keypress', check);
-billInput.addEventListener('keyup', check);
-billInput.addEventListener('change', check);
-peopleInput.addEventListener('keypress', check);
-peopleInput.addEventListener('keyup', check);
-peopleInput.addEventListener('change', check);
-// rdButtons[5].nextElementSibling.addEventListener('keyup', checkCostumeInput);
-// rdButtons[5].nextElementSibling.addEventListener('keypress', checkCostumeInput);
-// rdButtons[5].nextElementSibling.addEventListener('keydown', checkCostumeInput);
-// rdButtons[5].nextElementSibling.addEventListener('change', checkCostumeInput);
+
+['keypress', 'keyup', 'keydown', 'change'].forEach((listener) => {
+  rdButtons[5].nextElementSibling.addEventListener(listener, checkCostumeInput);
+  billInput.addEventListener(listener, check);
+  peopleInput.addEventListener('listener', check);
+});
+
 ['keypress', 'keyup', 'keydown', 'change'].forEach((listener) => {
   rdButtons[5].nextElementSibling.addEventListener(listener, checkCostumeInput);
 });
 
 rdButtons.forEach((rd) => rd.addEventListener('change', check));
+
+window.addEventListener('keydown', checkCostumeInput);
 window.onload = function () {
   // clear inputs and custom input
   [billInput, peopleInput, rdButtons[5].nextElementSibling].forEach(
