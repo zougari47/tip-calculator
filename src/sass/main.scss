@@ -1,6 +1,6 @@
-@use 'variables' as *;
-@use 'reset' as *;
-@use 'app-container';
+@import 'variables';
+@import 'reset';
+@import 'app-container';
 
 html {
   font-size: $font-size;
@@ -11,5 +11,4 @@ html {
 body {
   min-height: 100vh;
   @include flexCenter;
-  //   align-items: flex-start;
 }

@@ -1,16 +1,12 @@
-@use 'variables' as *;
-@use 'app';
+@import 'variables';
+@import 'app';
 
 .app-container {
-  // TODO: MAx width;
-  //   background: $Strong-cyan;
   width: 100%;
   min-height: 600px;
   margin-top: 3vh;
-  // background: gold;
   max-width: 940px;
   max-height: 600px;
-  // height: 1900px;
 }
 
 h1 {

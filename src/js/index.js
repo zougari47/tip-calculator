@@ -106,9 +106,13 @@ billInput.addEventListener('keypress', check);
 billInput.addEventListener('keyup', check);
 peopleInput.addEventListener('keypress', check);
 peopleInput.addEventListener('keyup', check);
-rdButtons[5].nextElementSibling.addEventListener('keyup', checkCostumeInput);
-rdButtons[5].nextElementSibling.addEventListener('keypress', checkCostumeInput);
-rdButtons[5].nextElementSibling.addEventListener('keydown', checkCostumeInput);
+// rdButtons[5].nextElementSibling.addEventListener('keyup', checkCostumeInput);
+// rdButtons[5].nextElementSibling.addEventListener('keypress', checkCostumeInput);
+// rdButtons[5].nextElementSibling.addEventListener('keydown', checkCostumeInput);
+// rdButtons[5].nextElementSibling.addEventListener('change', checkCostumeInput);
+['keypress', 'keyup', 'keydown', 'change'].forEach((listener) => {
+  rdButtons[5].nextElementSibling.addEventListener(listener, checkCostumeInput);
+});
 
 rdButtons.forEach((rd) => rd.addEventListener('change', check));
 window.onload = function () {
